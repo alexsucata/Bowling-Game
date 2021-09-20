@@ -20,6 +20,17 @@ public class BowlingApplication implements CommandLineRunner {
         logger.info("Starting the Bowling application");
         SpringApplication.run(BowlingApplication.class, args);
         logger.info("Ending the Bowling application");
+        System.out.println("Starting game between 2 computer players\n");
+        ComputerPlayer player1 = new ComputerPlayer(1, "Player 1", ComputerPlayer.LEVELS.BEGINNER);
+        ComputerPlayer player2 = new ComputerPlayer(2, "Player 2", ComputerPlayer.LEVELS.PRO);
+
+        for (int i = 0; i < 10; i++) {
+            player1.addRandomFrame();
+            player2.addRandomFrame();
+        }
+
+        System.out.format("Player 1 score: %d\n", player1.getGameScore());
+        System.out.format("Player 2 score: %d\n", player2.getGameScore());
     }
 
     @Override
