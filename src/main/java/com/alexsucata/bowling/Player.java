@@ -5,10 +5,12 @@ public class Player {
 
     private Integer id;
     private String name;
+    private Game game;
 
     public Player(Integer id, String name) {
         this.id = id;
         this.name = name;
+        this.game = new Game();
     }
 
     public String getName() {
@@ -23,7 +25,11 @@ public class Player {
         return id;
     }
 
-    public void addFrame() {
+    public void addFrame(BowlingFrame bowlingFrame) {
+        game.addFrame(bowlingFrame);
+    }
 
+    public Integer getGameScore() {
+        return game.getGameScore();
     }
 }
